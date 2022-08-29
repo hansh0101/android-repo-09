@@ -19,8 +19,17 @@ jobs:
         distribution: 'adopt'
         cache: gradle
 
-    - name: Add API_URL
-      run: echo "API_URL=\""${{ secrets.API_URL }}"\"" >> ./local.properties
+    - name: Add GITHUB_CLIENT_ID
+      run: echo "github_client_id=\""${{ secrets.CLIENT_ID }}"\"" >> ./local.properties
+
+    - name: Add GITHUB_SECRETS
+      run: echo "github_secrets=\""${{ secrets.SECRETS }}"\"" >> ./local.properties
+
+    - name: Add GITHUB_OAUTH_BASE_URL
+      run: echo "github_oauth_base_url=\""${{ secrets.OAUTH_BASE_URL }}"\"" >> ./local.properties
+
+    - name: Add GITHUB_API_BASE_URL
+      run: echo "github_api_base_url=\""${{ secrets.API_BASE_URL }}"\"" >> ./local.properties
         
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
